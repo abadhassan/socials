@@ -1,0 +1,11 @@
+
+ <li><%= link_to "Create Blog",new_post_path %></li>
+
+ <h1> blog posts</h1>
+<% @posts.each do |post| %>
+  <div class="well">
+	<h3><%= post.title %></h3>
+	<p><%= post.body %></p>
+	<%= link_to "Show", post_path(post),:class => 'btn btn-primary' %>
+  </div>
+<% end %>
