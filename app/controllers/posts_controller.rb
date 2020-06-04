@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
 	def index
       @posts=Post.all
 	end
@@ -11,7 +12,7 @@ class PostsController < ApplicationController
       @post= Post.find(params[:id])
 
       if(@post.update(post_params))
-      	redirect_to @post
+      	redirect_to  posts_path
       else
       	render 'edit'
       end
@@ -35,14 +36,18 @@ class PostsController < ApplicationController
     end
 
     def create
-      @post=Post.new(post_params)
-       
-
-      if (@post.save)
-        redirect_to @post
-      else
-      	render 'new'
-      end	
+    @post = current_user.posts.new(post_params)
+    respond_to do |format|
+        if @post.save
+            flash[:notice] = 'Post was successfully created.'
+            format.html { redirect_to post_path(@post) }
+        else
+            flash[:notice] = 'Something went wrong.'
+            format.html { render :action => "new" }
+            # or
+            # format.html { redirect_to new_post_path }
+        end
+     end
     end
 
     private def post_params

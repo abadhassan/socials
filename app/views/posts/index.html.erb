@@ -1,11 +1,27 @@
 
- <li><%= link_to "Create Blog",new_post_path %></li>
 
- <h1> blog posts</h1>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12">
+    	<div style="padding: 40px; border: 1px solid #ddd; border-radius: 15px;background: #f5f9fc;"> 
+<% if current_user %>
+
+ <li><%= link_to "Create Post",new_post_path ,:class => 'btn btn-primary'%></li>
+
+ <h1> Posts</h1>
 <% @posts.each do |post| %>
   <div class="well">
 	<h3><%= post.title %></h3>
 	<p><%= post.body %></p>
-	<%= link_to "Show", post_path(post),:class => 'btn btn-primary' %>
+	<%= link_to "Show This Post", post_path(post),:class => 'btn btn-primary' %>
   </div>
 <% end %>
+
+<% end %>
+
+</div>
+ </div>
+   </div>
+    </div>

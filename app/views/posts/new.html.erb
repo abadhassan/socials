@@ -1,3 +1,13 @@
+
+<% if current_user %>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6 offset-lg-3">
+			
+	 <div style="padding: 50px; border: 2px solid #ddd; border-radius: 15px;background: #CCFFFF"> 
+
+<%= link_to "Home",posts_path ,:class => 'btn btn-primary'%>
+
 <h1> Add Post</h1>
 <%= form_for :post , url:posts_path do |f| %>
  
@@ -15,3 +25,8 @@
 <%= f.submit({:class => 'btn btn-primary'})%>
 </p>
 <%end%> 
+<% end %>
+</div>
+ </div>
+  </div>
+  </div>

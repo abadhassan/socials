@@ -1,5 +1,13 @@
+
+
+<% if current_user %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+    	<div style="padding: 40px; border: 1px solid #ddd; border-radius: 15px;background: #f5f9fc;"> 
 <h1> Add Post</h1>
-<%= form_for :post , url:posts_path(@post),  method: :patch do |f| %>
+<%= form_for :post , url: post_path(@post),  method: :patch do |f| %>
  
 <p>
 <%= f.label :title %><br>
@@ -15,3 +23,8 @@
 <%= f.submit({:class => 'btn btn-primary'})%>
 </p>
 <%end%> 
+<% end %>
+</div>
+ </div>
+   </div>
+     </div>
